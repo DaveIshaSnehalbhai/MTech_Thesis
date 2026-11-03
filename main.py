@@ -1,18 +1,3 @@
-"""
-rahas_v6.py -- V6 sweep (train/val-separated router, BCE, Oracle-style target) with the
-ASGCN policy replaced by the V9 torch port of AS-GCN (huangwb/AS-GCN GCNAdapt + SamplerAdapt).
-
-Unchanged from V6: GFN policy, Oracle definition, BCE router (train on FULL train_mask
-disagreement set, select on FULL val_mask disagreement set, hard 0.5 deployment on ALL test nodes),
-PyG GraphConv layers, 512-dim embeddings, sweep (2 bases x 3 aggs x {no-jaccard, jaccard}).
-
-New:
-  * ASGCN = V9 port (layer-wise sampler, attention, variance regulariser, full-graph test).
-  * Oracle: how many homophilous nodes go to ASGCN (only-ASGCN-right) and heterophilous to GFN
-    (only-GFN-right), per seed and pooled; node-property + per-class tables.
-  * After the sweep: best config is rerun on all seeds and the same homophilous->ASGCN /
-    heterophilous->GFN statistics are computed for the ROUTER's hard assignment.
-"""
 import os, random, pickle
 import numpy as np
 import torch
