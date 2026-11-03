@@ -1,0 +1,17 @@
+--batch_size=256
+--dataset=ogbn-arxiv
+--dropout=0
+--eval_frequency=10
+--eval_full_batch=True
+--eval_on_cpu=True
+--hidden_dim=256
+--loss_coef=1.0
+--lr_gc=0.00015787341565806965
+--lr_gf=1.4369839193098112e-05
+--max_epochs=150
+--num_samples=256
+--random_sampling=False
+--reinforce_baseline=False
+--runs=10
+--sampling_hops=2
+--use_indicators=True

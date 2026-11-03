@@ -1,0 +1,19 @@
+--batch_size 256
+--dataset "citeseer"
+--eval_frequency 10
+--eval_full_batch true
+--eval_on_cpu true
+--hidden_dim 256
+--log_wandb true
+--log_z_init 0.0
+--loss_coef=1.0
+--lr_gc=4.5124329722836576e-05
+--lr_gf=0.008996396593742092
+--max_epochs 50
+--model_type "gcn"
+--num_samples 4
+--reg_param 0.0
+--sampling_hops 2
+--use_indicators true
+--dropout 0.0
+--runs 10

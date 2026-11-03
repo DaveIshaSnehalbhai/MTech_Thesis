@@ -1,0 +1,17 @@
+--batch_size=256
+--dataset=reddit
+--dropout=0
+--eval_frequency=25
+--eval_full_batch=True
+--eval_on_cpu=True
+--hidden_dim=256
+--loss_coef=1.0
+--lr_gc=2.222599114625147e-05
+--lr_gf=0.001386321175708781
+--max_epochs=50
+--num_samples=256
+--random_sampling=False
+--reinforce_baseline=False
+--runs=10
+--sampling_hops=2
+--use_indicators=True
