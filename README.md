@@ -1,7 +1,5 @@
 # RA-HAS V6: GFlowNet vs AS-GCN Router
 
-Script: `rahas_v6.py` (run as `main.py` in the commands below).
-
 ## Run
 
 ```bash
@@ -126,27 +124,6 @@ It then prints:
 **Deployment:** the hard 0.5 threshold is applied to **all** test nodes (not only disagreement ones). The final prediction is the chosen policy's prediction. Reported: router accuracy, how often each policy was chosen (usage), and router accuracy on test disagreement nodes.
 
 **Optional Jaccard feature (`compute_jaccard_overlap`):** for node `v`, take the top-k neighbours GFN would pick and the top-k AS-GCN would pick, and compute their Jaccard overlap. High overlap means the two samplers agree on the neighbourhood. This one number is concatenated to the router embedding.
-
-### Step 6: Sweep (`run_sweep`)
-
-Runs the router for every combination of:
-
-- base layer: `gcn`, `sage`
-- aggregation: `mean`, `max`, `sum`
-- Jaccard feature: off, on
-
-That is 2 x 3 x 2 = **12 configs**, each over all seeds. A table prints router accuracy, gain over the best single policy, and accuracy on disagreement nodes. The best config by mean accuracy is selected.
-
-### Step 7: Best-config analysis (`run_best_router_report`)
-
-The best config is rerun on all seeds. For the **router's hard assignment**, it reports:
-
-- How many homophilous nodes went to AS-GCN, and how many heterophilous nodes went to GFN.
-- The same restricted to **decisive nodes** (exactly one policy right). This is the fair test of whether the router copies the oracle.
-- Breakdown by category, for example `[only GFN right] -> ASGCN` (a wrong routing) vs `[only GFN right] -> GFN` (a correct one).
-- Pooled per-group node-property tables and per-class tables.
-
-**How to read the result:** compare the router's decisive-node summary with the Oracle summary from Step 4. If they match, the router has learned the homophily-based rule. If not, the router is using other signals or failing to learn the rule.
 
 ---
 
