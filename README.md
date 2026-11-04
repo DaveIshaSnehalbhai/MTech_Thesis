@@ -1,5 +1,3 @@
-# RA-HAS V6: GFlowNet vs AS-GCN Router
-
 ## Run
 
 ```bash
